@@ -1,0 +1,17 @@
+service: "service:IrisClassifier"
+labels:
+  owner: "Dhruv Vakharwala"
+  stage: development
+include:
+  - "*.py"
+python:
+  packages:
+    - scikit-learn
+    - pandas
+    - numpy
+  lock_packages: false
+  index_url: "https://pypi.org/simple"
+docker:
+  python_version: "3.12"
+  system_packages:
+    - git
