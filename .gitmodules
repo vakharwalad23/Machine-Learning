@@ -1,3 +1,6 @@
 [submodule "SPI_Prediction"]
 	path = SPI_Prediction
 	url = https://github.com/vakharwalad23/ml_spi.git
+[submodule "MLops_ETL"]
+	path = MLops_ETL
+	url = https://github.com/vakharwalad23/mlops_etl.git
