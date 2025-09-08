@@ -15,11 +15,14 @@ from urllib.parse import urlparse
 import mlflow
 from mlflow.models import infer_signature
 import mlflow.sklearn
+import dagshub
 
 import logging
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
+
+dagshub.init(repo_owner='vakharwalad23', repo_name='ML_Flow_L', mlflow=True)
 
 
 def eval_metrics(actual, pred):
@@ -34,7 +37,7 @@ if __name__ == "__main__":
     np.random.seed(40)
 
     # Set MLflow tracking directory to current directory
-    mlflow.set_tracking_uri("file:./mlruns")
+    # mlflow.set_tracking_uri("file:./mlruns")
 
     # Read the wine-quality csv file from the URL
     csv_url = (
@@ -82,21 +85,15 @@ if __name__ == "__main__":
         predictions = lr.predict(train_x)
         signature = infer_signature(train_x, predictions)
 
-        # For Remote server only(DAGShub)
+        # For DagHub compatibility, save model as artifact instead
+        import joblib
+        import tempfile
 
-        # remote_server_uri = ""
-        # mlflow.set_tracking_uri(remote_server_uri)
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            model_path = os.path.join(tmp_dir, "model.pkl")
+            joblib.dump(lr, model_path)
+            mlflow.log_artifact(model_path, "model")
 
-        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-
-        # Model registry does not work with file store
-        if tracking_url_type_store != "file":
-            # Register the model
-            # There are other ways to use the Model Registry, which depends on the use case,
-            # please refer to the doc for more information:
-            # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-            mlflow.sklearn.log_model(
-                lr, "model", registered_model_name="ElasticnetWineModel", signature=signature
-            )
-        else:
-            mlflow.sklearn.log_model(lr, "model", signature=signature)
+        # Alternative: Use mlflow.sklearn.save_model with local path
+        # mlflow.sklearn.save_model(lr, "model_local", signature=signature)
+        # mlflow.log_artifacts("model_local", "model")
