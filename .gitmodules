@@ -4,3 +4,6 @@
 [submodule "MLops_ETL"]
 	path = MLops_ETL
 	url = https://github.com/vakharwalad23/mlops_etl.git
+[submodule "dvc"]
+	path = dvc
+	url = https://github.com/vakharwalad23/dvc.git
