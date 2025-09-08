@@ -1,0 +1,3 @@
+[submodule "SPI_Prediction"]
+	path = SPI_Prediction
+	url = https://github.com/vakharwalad23/ml_spi.git
