@@ -7,3 +7,6 @@
 [submodule "dvc"]
 	path = dvc
 	url = https://github.com/vakharwalad23/dvc.git
+[submodule "Deep Learning/Churn-Modelling-ANN"]
+	path = Deep Learning/Churn-Modelling-ANN
+	url = https://github.com/vakharwalad23/Churn-Modelling.git
