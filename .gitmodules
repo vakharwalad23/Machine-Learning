@@ -10,3 +10,6 @@
 [submodule "Deep Learning/Churn-Modelling-ANN"]
 	path = Deep Learning/Churn-Modelling-ANN
 	url = https://github.com/vakharwalad23/Churn-Modelling.git
+[submodule "Deep Learning/IMDb-RNN"]
+	path = Deep Learning/IMDb-RNN
+	url = https://github.com/vakharwalad23/IMDb-RNN
