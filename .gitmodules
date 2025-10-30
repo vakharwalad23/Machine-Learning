@@ -13,3 +13,6 @@
 [submodule "Deep Learning/IMDb-RNN"]
 	path = Deep Learning/IMDb-RNN
 	url = https://github.com/vakharwalad23/IMDb-RNN
+[submodule "Deep Learning/next-word-LSTM_RNN"]
+	path = Deep Learning/next-word-LSTM_RNN
+	url = https://github.com/vakharwalad23/next-word-LSTM_RNN.git
