@@ -12,3 +12,9 @@ A minimal, curated set of hands-on notebooks to learn:
    ```bash
    python -m venv .venv && source .venv/bin/activate
    pip install -r requirements.txt
+
+## Notes
+- See [Notes](Notes/) for PDFs on statistics and deep learning basics.
+
+## License
+Public repository for learning purposes. Use freely.
